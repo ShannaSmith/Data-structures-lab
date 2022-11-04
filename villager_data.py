@@ -13,12 +13,17 @@ def all_species(filename):
 
     species = set()
 
-    # TODO: replace this with your code
+    data = open(filename)
+
+    for line in data:
+        unique = line.split('|')[1]
+        species.add(unique)
+        
 
     return species
 
 
-def get_villagers_by_species(filename, search_string="All"):
+def get_villagers_by_species(filename, search_string="Wolf"):
     """Return a list of villagers' names by species.
 
     Arguments:
@@ -32,7 +37,16 @@ def get_villagers_by_species(filename, search_string="All"):
     villagers = []
 
     # TODO: replace this with your code
-
+    data = open(filename)
+    for line in data:
+         villager = line.split("|")[0]
+         print(villager)
+         species = line.split("|")[1]
+         print(species)
+         if species == search_string:
+             print(villager)
+             villagers.append(villager)
+    print(villagers)
     return sorted(villagers)
 
 
